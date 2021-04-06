@@ -7,7 +7,7 @@ import { WrapSystem } from '../system/wrap.system';
 export const MAIN_STATE = new State.TwoD.State2D({
     name: 'main',
     init: (game) => {
-        game.setData('points', 1);
+        game.setData('points', 0);
 
         game.addSystems(
             new WrapSystem(),
@@ -38,7 +38,7 @@ export const MAIN_STATE = new State.TwoD.State2D({
         const player = game.world.filterEntitiesByTag('player')[0];
 
         if (player) {
-            const health = player.getComponent(Health).health;
+            const health = player.getComponent<Health>('Health').health;
             const healthString = `Health: ${health}`;
             game.font.addString(
                 healthString,
@@ -47,7 +47,7 @@ export const MAIN_STATE = new State.TwoD.State2D({
                 new Color(255, 255, 255)
             );
 
-            const transform = player.getComponent(Component.TwoD.Transform2D);
+            const transform = player.getComponent<Component.TwoD.Transform2D>('Transform2D');
 
             if (game.input.isKeyDown(Input.Keys.A)) {
                 transform.velocity.setX(-650);

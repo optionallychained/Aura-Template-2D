@@ -8,7 +8,7 @@ export class WrapSystem extends System.TwoD.System2D {
         const wrappables = game.world.filterEntitiesByTags('player', 'enemy');
 
         for (const wrappable of wrappables) {
-            const transform = wrappable.getComponent(Component.TwoD.Transform2D);
+            const transform = wrappable.getComponent<Component.TwoD.Transform2D>('Transform2D');
 
             const left = this.left(transform),
                 right = this.right(transform),

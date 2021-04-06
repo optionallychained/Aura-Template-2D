@@ -13,7 +13,7 @@ export class ProgressionSystem extends System.TwoD.System2D {
         const player = game.world.filterEntitiesByTag('player')[0];
 
         if (player) {
-            if (player.getComponent(Health).health <= 0) {
+            if (player.getComponent<Health>('Health').health <= 0) {
                 game.switchToState('dead');
             }
         }

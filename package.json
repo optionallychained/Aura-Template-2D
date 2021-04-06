@@ -1,6 +1,6 @@
 {
     "name": "aura-template-2d",
-    "version": "0.7.6",
+    "version": "0.8.0",
     "scripts": {
         "lint": "eslint --ext .ts --fix",
         "debug": "webpack serve --config webpack.config.js --mode development",
@@ -11,7 +11,7 @@
         "deploy": "gh-pages -d dist"
     },
     "dependencies": {
-        "aura": "^0.7.6"
+        "aura": "^0.8.0"
     },
     "devDependencies": {
         "@typescript-eslint/eslint-plugin": "^4.21.0",

@@ -25,6 +25,6 @@ export class Food extends Entity.Entity {
 
     public tick(game: Core.TwoD.Game2D, frameDelta: number): void {
         // TODO typeparam required due to bug <missing type in Aura publish>
-        this.getComponent(Component.TwoD.Transform2D).rotate(Angle.toRadians(1) * this.rotateDir);
+        this.getComponent<Component.TwoD.Transform2D>('Transform2D').rotate(Angle.toRadians(1) * this.rotateDir);
     }
 }
