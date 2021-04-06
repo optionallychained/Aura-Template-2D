@@ -1,0 +1,15 @@
+{
+    "configurations": [
+        {
+            "type": "chrome",
+            "request": "launch",
+            "name": "Debug",
+            "url": "http://localhost:8080",
+            "preLaunchTask": "Start Game",
+            "sourceMaps": true,
+            "pathMapping": {
+                "webpack:///": "${workspaceFolder}/dev"
+            }
+        }
+    ]
+}
