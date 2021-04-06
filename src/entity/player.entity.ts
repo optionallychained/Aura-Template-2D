@@ -13,10 +13,13 @@ export class Player extends Entity.Entity {
                 new Component.Generic.FlatColor(new Color(0, 255, 0)),
                 new Component.TwoD.BoxCollider2D(new Vec2(50, 50), (game: Core.Game, other: Entity.Entity) => {
                     if (other.tag === 'enemy') {
-                        this.getComponent<Health>(Health).health -= 1;
+                        this.getComponent(Health).health -= 1;
+                    }
+                    else if (other.tag === 'food') {
+                        game.setData('points', game.getData<number>('points') + 1);
                     }
                 }),
-                new Health(10)
+                new Health(50)
             ]
         });
     }

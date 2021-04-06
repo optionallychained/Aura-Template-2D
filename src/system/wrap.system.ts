@@ -5,11 +5,10 @@ export class WrapSystem extends System.TwoD.System2D {
     public readonly name = 'Wrap';
 
     public tick(game: Core.TwoD.Game2D, frameDelta: number): void {
-        const player = game.world.filterEntitiesByTag('player')[0];
+        const wrappables = game.world.filterEntitiesByTags('player', 'enemy');
 
-        if (player) {
-            // TODO typeparam required due to bug <missing type in Aura publish>
-            const transform = player.getComponent<Component.TwoD.Transform2D>(Component.TwoD.Transform2D);
+        for (const wrappable of wrappables) {
+            const transform = wrappable.getComponent(Component.TwoD.Transform2D);
 
             const left = this.left(transform),
                 right = this.right(transform),

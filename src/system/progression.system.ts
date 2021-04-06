@@ -13,7 +13,7 @@ export class ProgressionSystem extends System.TwoD.System2D {
         const player = game.world.filterEntitiesByTag('player')[0];
 
         if (player) {
-            if (player.getComponent<Health>(Health).health <= 0) {
+            if (player.getComponent(Health).health <= 0) {
                 game.switchToState('dead');
             }
         }
@@ -29,21 +29,23 @@ export class ProgressionSystem extends System.TwoD.System2D {
             ));
         }
 
-        if (game.getData<number>('points') % 5 === 0 && !this.enemyAdded) {
-            this.enemyAdded = true;
+        if (game.getData<number>('points') % 5 === 0) {
+            if (!this.enemyAdded) {
+                const random = Math.random();
 
-            const random = Math.random();
+                game.world.addEntity(new Enemy(
+                    new Vec2(
+                        Random.between(-game.world.dimensions.x, game.world.dimensions.x),
+                        Random.between(-game.world.dimensions.y, game.world.dimensions.y)
+                    ),
+                    new Vec2(
+                        random < 0.5 ? 500 * Random.between(-1, 1) : 0,
+                        random > 0.5 ? 500 * Random.between(-1, 1) : 0
+                    )
+                ));
 
-            game.world.addEntity(new Enemy(
-                new Vec2(
-                    Random.between(-game.world.dimensions.x, game.world.dimensions.x),
-                    Random.between(-game.world.dimensions.y, game.world.dimensions.y)
-                ),
-                new Vec2(
-                    random < 0.5 ? 100 * Random.between(-1, 1) : 0,
-                    random > 0.5 ? 100 * Random.between(-1, 1) : 0
-                )
-            ));
+                this.enemyAdded = true;
+            }
         }
         else {
             this.enemyAdded = false;

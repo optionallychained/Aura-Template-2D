@@ -31,26 +31,23 @@ export const MAIN_STATE = new State.TwoD.State2D({
         game.font.addString(
             `Points: ${points}`,
             new Vec2(-game.world.dimensions.x / 2 + 25, game.world.dimensions.y / 2 - 25),
-            new Vec2(50, 50),
+            new Vec2(30, 30),
             new Color(255, 255, 255)
         );
 
         const player = game.world.filterEntitiesByTag('player')[0];
 
         if (player) {
-            const health = player.getComponent<Health>(Health).health;
+            const health = player.getComponent(Health).health;
             const healthString = `Health: ${health}`;
             game.font.addString(
                 healthString,
-                new Vec2(game.world.dimensions.x / 2 - (25 * healthString.length), game.world.dimensions.y / 2 - 25),
-                new Vec2(50, 50),
+                new Vec2(game.world.dimensions.x / 2 - (25 * healthString.length) - 50, game.world.dimensions.y / 2 - 25),
+                new Vec2(30, 30),
                 new Color(255, 255, 255)
             );
 
-            // TODO typeparam required due to bug <missing type in Aura publish>
-            const transform = player.getComponent<Component.TwoD.Transform2D>(Component.TwoD.Transform2D);
-
-            const velocity = new Vec2();
+            const transform = player.getComponent(Component.TwoD.Transform2D);
 
             if (game.input.isKeyDown(Input.Keys.A)) {
                 transform.velocity.setX(-650);
