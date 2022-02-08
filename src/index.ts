@@ -8,7 +8,6 @@ const game = new Core.TwoD.Game2D({
 });
 
 game.registerShader(Shader.Program.TwoD.PROGRAM_BASIC_2D);
-
 game.registerShader(Shader.Program.TwoD.PROGRAM_TEXTURE_COLORED_2D);
 
 game.addStates(MENU_STATE, MAIN_STATE, DEAD_STATE);

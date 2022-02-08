@@ -38,7 +38,9 @@ module.exports = (env, options) => {
 
     if (dev) {
         config.devServer = {
-            contentBase: './dev'
+            static: {
+                directory: './dev'
+            }
         };
     }
 

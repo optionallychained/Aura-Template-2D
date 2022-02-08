@@ -9,7 +9,7 @@ export class ProgressionSystem extends System.TwoD.System2D {
 
     private enemyAdded = false;
 
-    public tick(game: Core.TwoD.Game2D, frameDelta: number): void {
+    public tick(game: Core.TwoD.Game2D): void {
         const player = game.world.filterEntitiesByTag('player')[0];
 
         if (player) {

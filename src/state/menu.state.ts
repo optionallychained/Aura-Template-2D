@@ -7,7 +7,7 @@ export const MENU_STATE = new State.TwoD.State2D({
             'Press Enter!',
             new Vec2(-260, 0),
             new Vec2(50, 50),
-            new Color(255, 255, 255)
+            Color.white()
         );
     },
     end: (game) => {

@@ -32,7 +32,7 @@ export const MAIN_STATE = new State.TwoD.State2D({
             `Points: ${points}`,
             new Vec2(-game.world.dimensions.x / 2 + 25, game.world.dimensions.y / 2 - 25),
             new Vec2(30, 30),
-            new Color(255, 255, 255)
+            Color.white()
         );
 
         const player = game.world.filterEntitiesByTag('player')[0];
@@ -44,7 +44,7 @@ export const MAIN_STATE = new State.TwoD.State2D({
                 healthString,
                 new Vec2(game.world.dimensions.x / 2 - (25 * healthString.length) - 50, game.world.dimensions.y / 2 - 25),
                 new Vec2(30, 30),
-                new Color(255, 255, 255)
+                Color.white()
             );
 
             const transform = player.getComponent<Component.TwoD.Transform2D>('Transform2D');

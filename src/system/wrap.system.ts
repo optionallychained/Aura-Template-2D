@@ -4,7 +4,7 @@ export class WrapSystem extends System.TwoD.System2D {
 
     public readonly name = 'Wrap';
 
-    public tick(game: Core.TwoD.Game2D, frameDelta: number): void {
+    public tick(game: Core.TwoD.Game2D): void {
         const wrappables = game.world.filterEntitiesByTags('player', 'enemy');
 
         for (const wrappable of wrappables) {
