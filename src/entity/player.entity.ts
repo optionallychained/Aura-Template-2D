@@ -1,23 +1,23 @@
-import { Color, Component, Core, Entity, Geometry, Shader, Vec2 } from 'aura';
+import { BoxCollider, Color, Entity, FlatColor, Game, Geometries, Model, Shader, ShaderPrograms, Transform, Vec2 } from 'aura-2d';
 import { Health } from '../component/health.component';
 
-export class Player extends Entity.Entity {
+export class Player extends Entity {
 
     constructor() {
         super({
             tag: 'player',
             components: [
-                new Component.TwoD.Transform2D(new Vec2(0, 0), new Vec2(35, 35), 0, new Vec2(650, 0)),
-                new Component.Generic.Model(Geometry.TwoD.BOX),
-                new Component.Generic.Shader(Shader.Program.TwoD.PROGRAM_BASIC_2D),
-                new Component.Generic.FlatColor(Color.green()),
-                new Component.TwoD.BoxCollider2D(),
+                new Transform(new Vec2(0, 0), new Vec2(35, 35), 0, new Vec2(650, 0)),
+                new Model(Geometries.SQUARE),
+                new Shader(ShaderPrograms.BASIC),
+                new FlatColor(Color.green()),
+                new BoxCollider(),
                 new Health(10)
             ]
         });
     }
 
-    public onCollisionStart(game: Core.Game, other: Entity.Entity): void {
+    public onCollisionStart(game: Game, other: Entity): void {
         if (other.tag === 'enemy') {
             this.getComponent<Health>('Health').health -= 1;
         }

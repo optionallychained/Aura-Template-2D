@@ -1,14 +1,16 @@
-import { Component, Core, System, Vec2 } from 'aura';
+import { Game, System, Transform, Vec2 } from 'aura-2d';
 
-export class WrapSystem extends System.TwoD.System2D {
+export class WrapSystem extends System {
 
-    public readonly name = 'Wrap';
+    constructor() {
+        super('Wrap');
+    }
 
-    public tick(game: Core.TwoD.Game2D): void {
+    public tick(game: Game): void {
         const wrappables = game.world.filterEntitiesByTags('player', 'enemy');
 
         for (const wrappable of wrappables) {
-            const transform = wrappable.getComponent<Component.TwoD.Transform2D>('Transform2D');
+            const transform = wrappable.getComponent<Transform>('Transform');
 
             const left = this.left(transform),
                 right = this.right(transform),
@@ -31,19 +33,19 @@ export class WrapSystem extends System.TwoD.System2D {
         }
     }
 
-    private left(transform: Component.TwoD.Transform2D): number {
+    private left(transform: Transform): number {
         return transform.position.x - (transform.scale.x / 2);
     }
 
-    private right(transform: Component.TwoD.Transform2D): number {
+    private right(transform: Transform): number {
         return transform.position.x + (transform.scale.x / 2);
     }
 
-    private bottom(transform: Component.TwoD.Transform2D): number {
+    private bottom(transform: Transform): number {
         return transform.position.y - (transform.scale.y / 2);
     }
 
-    private top(transform: Component.TwoD.Transform2D): number {
+    private top(transform: Transform): number {
         return transform.position.y + (transform.scale.y / 2);
     }
 }

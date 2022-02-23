@@ -1,15 +1,17 @@
-import { Core, Random, System, Vec2 } from 'aura';
+import { Game, Random, System, Vec2 } from 'aura-2d';
 import { Health } from '../component/health.component';
 import { Enemy } from '../entity/enemy.entity';
 import { Food } from '../entity/food.entity';
 
-export class ProgressionSystem extends System.TwoD.System2D {
-
-    public readonly name = 'Progression';
+export class ProgressionSystem extends System {
 
     private enemyAdded = false;
 
-    public tick(game: Core.TwoD.Game2D): void {
+    constructor() {
+        super('Progression');
+    }
+
+    public tick(game: Game): void {
         const player = game.world.filterEntitiesByTag('player')[0];
 
         if (player) {

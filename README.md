@@ -2,7 +2,8 @@
 
 Aura-Template-2D is a bare-bones starter project for getting up and running making 2D games with [Aura](https://github.com/optionallychained/Aura), including:
 - ESlint configuration
-- WebPack configuration
+- TypeScript configuration
+- Webpack configuration
 - VSCode Debug configuration
 - A simple demo game
 
@@ -17,24 +18,18 @@ Aura-Template-2D is a bare-bones starter project for getting up and running maki
 ## Setup
 - Install [NPM](https://nodejs.org/)
 - Clone
-- Terminal: `npm install`
+- `npm install`
 
 
 ## Development
-- Terminal: `npm run dev`
-    - **Alternatively (recommended)**: Run Debug configuration in VSCode
-- Work on your game in `src/`
-- View output at `localhost:8080`
+- **Recommended**: Run Debug configuration in VSCode
+- **Alternative**: `npm run debug` => browse to `localhost:8080`
 
 
 ## Distribution
-- Terminal: `npm run dist`
-- Retrieve build from `dist/`
+- `npm run build` => retrieve build from `dist/`
 
 
 ## Misc
-- Terminal: `npm run lint`
-    - executed before `dist`
-
-- Terminal: `npm run deploy`
-    - builds, then deploys `dist/` to the `gh-pages` branch
+- `npm run lint` (executed before `build`)
+- `npm run deploy` (builds and deploys `dist/` to the `gh-pages` branch)
