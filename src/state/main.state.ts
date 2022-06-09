@@ -9,12 +9,7 @@ export const MAIN_STATE = new State({
     init: (game) => {
         game.setData('points', 0);
 
-        game.addSystems(
-            new WrapSystem(),
-            new ProgressionSystem(),
-            new Physics(),
-            new Collision()
-        );
+        game.addSystems(WrapSystem, ProgressionSystem, Physics, Collision);
 
         game.world.addEntity(new Player());
     },
